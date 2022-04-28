@@ -15,14 +15,14 @@ def apiCustomerList(user):
         return {
             'status': 'success',
             'total_results': len(customers),
-            'customers': [c.to_dict() for c in customers]
+            'customers': [c.to_dict() for c in customers][::-1]
         }
     else:
         customers = Customer.query.filter_by(user_id=user.id).all()
         return{
             'status': 'success',
             'total_results': len(customers),
-            'customers': [c.to_dict() for c in customers]
+            'customers': [c.to_dict() for c in customers][::-1]
         }
 
 @customer.route('/api/customers/create', methods=["POST"])

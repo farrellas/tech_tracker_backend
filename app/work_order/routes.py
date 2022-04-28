@@ -15,7 +15,7 @@ def apiSystemWorkOrderList(customer_id, system_id, user):
     return {
         'status': 'success',
         'total_results': len(work_orders),
-        'work_order': [w.to_dict() for w in work_orders]
+        'work_order': [w.to_dict() for w in work_orders][:-10:-1]
     }
 
 @work_order.route('/api/recent/work-order-list')
@@ -26,7 +26,7 @@ def apiRecentUserWorkOrderList(user):
     return {
         'status': 'success',
         'total_results': len(work_orders),
-        'work_order': [w.to_dict() for w in work_orders]
+        'work_order': [w.to_dict() for w in work_orders][::-1]
     }
 
 @work_order.route('/api/customers/<int:customer_id>/work-order-list')
@@ -37,7 +37,7 @@ def apiRecentCustomerWorkOrderList(customer_id, user):
     return {
         'status': 'success',
         'total_results': len(work_orders),
-        'work_order': [w.to_dict() for w in work_orders]
+        'work_order': [w.to_dict() for w in work_orders][::-1]
     }
 
 @work_order.route('/api/customers/<int:customer_id>/systems/<int:system_id>/work-order/<int:work_order_id>')

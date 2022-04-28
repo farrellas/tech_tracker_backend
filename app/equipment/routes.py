@@ -54,8 +54,8 @@ def apiCreateSystem(customer_id, user):
     name = data['name']
     area_served = data['area_served']
     system_type = data['system_type']
-    heating = (data['heating'] == 'on')
-    cooling = (data['cooling'] == 'on')
+    heating = data['heating']
+    cooling = data['cooling']
     notes = data['notes']
 
     system = System(name, area_served, system_type, heating, cooling, notes, customer_id)
@@ -87,11 +87,12 @@ def apiUpdateSystem(customer_id, system_id, user):
         }
 
     data = request.json
+    print(data)
     system.name = data['name']
     system.area_served = data['area_served']
     system.system_type = data['system_type']
-    system.heating = (data['heating'] == 'on')
-    system.cooling = (data['cooling'] == 'on')
+    system.heating = data['heating']
+    system.cooling = data['cooling']
     system.notes = data['notes']
 
     db.session.commit()
