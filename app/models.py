@@ -147,8 +147,8 @@ class Equipment(db.Model):
     notes = db.Column(db.String(1000), nullable=True)
     system_id = db.Column(db.Integer, db.ForeignKey('system.id'), nullable=False)
 
-    def __init__(self, brand, model_no, serial_no, year, equipment_type, notes, system_id, fuel_type='', refrigerant_type=''):
-        self.equipment_class = 'packaged'
+    def __init__(self, equipment_class, brand, model_no, serial_no, year, equipment_type, notes, system_id, fuel_type='', refrigerant_type=''):
+        self.equipment_class = equipment_class
         self.brand = brand
         self.model_no = model_no
         self.serial_no = serial_no

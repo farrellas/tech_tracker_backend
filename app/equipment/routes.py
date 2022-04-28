@@ -192,7 +192,7 @@ def apiCreateEquipment(customer_id, system_id, user):
     fuel_type = data['fuel_type']
     refrigerant_type = data['refrigerant_type']
 
-    equipment = Equipment(brand, model_no, serial_no, year, equipment_type, notes, system.id, fuel_type, refrigerant_type)
+    equipment = Equipment(equipment_class, brand, model_no, serial_no, year, equipment_type, notes, system.id, fuel_type, refrigerant_type)
 
     db.session.add(equipment)
     db.session.commit()
