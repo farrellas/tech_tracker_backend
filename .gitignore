@@ -1,10 +1,5 @@
-/__pycache__
-/app/__pycache__
-/app/auth/__pycache__
-/app/company/__pycache__
-/app/customer/__pycache__
-/app/equipment/__pycache__
-/app/work_order/__pycache__
+__pycache__
+**/__pycache__
 /venv
 /migrations
 .env
